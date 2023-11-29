@@ -22,7 +22,7 @@ This repos contains my config files as well as my .xinitrc, .bashrc and font fil
 **File manager**: ranger  
 
 ## Additional Information  
-**Font**: Jet Brains Mono Nerd Font  
+**Font/Icons**: Jet Brains Mono Nerd Font, Awesome Icons  
 **Audio Server**: Pipewire  
 
 ## Whoa! Hold on there buckaroo!

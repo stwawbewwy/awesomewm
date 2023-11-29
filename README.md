@@ -25,5 +25,5 @@ And of course a huge thanks to my second favourite twitch streamer [@chiffa](htt
 **Font**: Jet Brains Mono Nerd Font
 **Audio Server**: Pipewire
 
-# Whoa! Hold on there buckaroo!
+## Whoa! Hold on there buckaroo!
 You may have noticed that I have a "autorun.sh" mentioned in my awesomewm config file. Edit it as you see fit. I use it instead of awful.spawn to make it easier for me to manage it.

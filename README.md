@@ -8,7 +8,7 @@ Credit to [@lcpz](https://github.com/lcpz/lain) and [@streetturtle](https://gith
 And of course a huge thanks to my second favourite twitch streamer [@chiffa](https://twitch.tv/ch1ffaa) for leading me down this rabbit hole. (Check em out they're cool)  
 
 # My awesomewm config (And some other things)
-This repos contains my config files as well as my .xinitrc, .bashrc and font file for me to refer to in the future. 
+My awesome config, and some other stuff. Ignore the bashrc and xinitrc file, it's future reference for myself. Thanks.
 
 ## Information  
 **OS**: Arch  
@@ -26,4 +26,5 @@ This repos contains my config files as well as my .xinitrc, .bashrc and font fil
 **Audio Server**: Pipewire  
 
 ## Whoa! Hold on there buckaroo!
-You may have noticed that I have a "autorun.sh" mentioned in my awesomewm config file. Edit it as you see fit. I use it instead of awful.spawn to make it easier for me to manage it.
+You may have noticed that I have a "autorun.sh" mentioned in my awesomewm config file. Edit it as you see fit. I use it instead of awful.spawn to make it easier for me to manage it.  
+Also if the logout popup menu does not work, that's cause it requires [awesome buttons](https://github.com/streetturtle/awesome-buttons.git). Clone it under ~/.config/awesome!   

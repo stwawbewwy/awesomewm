@@ -1,0 +1,30 @@
+font_family		JetBrainsMonoNerdFont-Regular
+bold_font		JetBrainsMonoNerdFont-Bold
+italic_font		JetBrainsMonoNerdFont-Italic
+bold_italic_font	JetBrainsMonoNerdFont-BoldItalic
+
+font_size 11.0
+
+force_ltr no
+
+symbol_map codepoints JetBrainsMonoNerdFont
+
+narrow_symbols codepoints 5
+
+disable_ligatures never
+
+map alt+1 disable_ligatures_in active always
+map alt+2 disable_ligatures_in all never
+map alt+3 disable_ligatures_in tab cursor
+
+font_features non
+background_opacity 0.7
+cursor_shape beam
+cursor_blink_interval 0
+
+
+
+# BEGIN_KITTY_THEME
+# Tokyo Night
+include current-theme.conf
+# END_KITTY_THEME

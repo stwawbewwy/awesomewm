@@ -1,0 +1,48 @@
+q
+add ~/Music
+add
+add /notanyone/home/Music/Sci-Fi ROMANCE TRAVELER
+bind -f common r toggle repeat_current
+set repeat_current=true
+set repeat=false
+set shuffle=off
+bind -f common ^C echo Type :qui
+set repeat_current=false
+set set_term_title=true
+set set_term_title=false
+set show_all_tracks=true
+set show_all_tracks=false
+set show_all_tracks=
+set show_current_bitrate=false
+set show_current_bitrate=true
+set shuffle=tracks
+set time_show_leading_zero=true
+set time_show_leading_zero=false
+set show_remaining_time=false
+set show_remaining_time=true
+set lib_sort=albumartist album tracknumber
+set lib_sort=albumartist album tracknumber 
+w
+loop
+set mouse=false
+set mouse=true
+set play_sorted=true
+set lib_sort=albumartist date album discnumber tracknumber title filename play_count
+set lib_sort=discnumber tracknumber
+set lib_sort=albumartist date album discnumber tracknu
+x
+set pl_sort=tracknumber
+set pl_sort=
+set play_sorted=false
+delete
+remove
+add /home/notanyone/Music/2021.08.14 [TMNC-030] The World Of Dystopia [東方ルナティック]
+add 
+add '2021.08.14 [TMNC-030] The World Of Dystopia [東方ルナティック]'
+update
+man cmus
+h
+edit
+add /home/notanyone/Music
+add /home/Music
+quit

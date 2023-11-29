@@ -7,10 +7,10 @@ Credit to [@lcpz](https://github.com/lcpz/lain) and [@streetturtle](https://gith
 
 And of course a huge thanks to my second favourite twitch streamer [@chiffa](https://twitch.tv/ch1ffaa) for leading me down this rabbit hole. (Check em out they're cool)  
 
-# My awesomewm config
-## and some other things
+# My awesomewm config (And some other things)
+This repos contains my config files as well as my .xinitrc, .bashrc and font file for me to refer to in the future. 
 
-## Information
+## Information  
 **OS**: Arch  
 **WM**: Awesomewm  
 **Terminal**: kitty  

@@ -1,0 +1,3 @@
+return {
+        vicious = require'vicious',
+}

@@ -1,15 +1,16 @@
 # Hello!
 It seems that you have stumbled upon my personal config files.  
 If you're interested at all, you can use it I guess.  
+  
 ![myawesomewmsetup](https://github.com/stwawbewwy/awesomewm/assets/98587775/55fb2b7a-6203-411c-8b87-4c36b85d6026)  
-
+  
 Credit to [@lcpz](https://github.com/lcpz/lain) and [@streetturtle](https://github.com/streetturtle/awesome-wm-widgets) for their awesome widgets.  
 
 And of course a huge thanks to my second favourite twitch streamer [@chiffa](https://twitch.tv/ch1ffaa) for leading me down this rabbit hole. (Check em out they're cool)  
-
+  
 # My awesomewm config (And some other things)
 My awesome config, and some other stuff. Ignore the bashrc and xinitrc file, it's future reference for myself. Thanks.
-
+  
 ## Information  
 **OS**: Arch  
 **WM**: Awesomewm  
@@ -20,11 +21,11 @@ My awesome config, and some other stuff. Ignore the bashrc and xinitrc file, it'
 **Application Launcher**: Awesomewm launcher  
 **Music Player**: cmus  
 **File manager**: ranger  
-
+  
 ## Additional Information  
 **Font/Icons**: Jet Brains Mono Nerd Font, Awesome Icons  
 **Audio Server**: Pipewire  
-
+  
 ## Whoa! Hold on there buckaroo!
 You may have noticed that I have a "autorun.sh" mentioned in my awesomewm config file. Edit it as you see fit. I use it instead of awful.spawn to make it easier for me to manage it.  
 Also if the logout popup menu does not work, that's cause it requires [awesome buttons](https://github.com/streetturtle/awesome-buttons.git). Clone it under ~/.config/awesome!   

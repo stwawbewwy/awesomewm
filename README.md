@@ -2,7 +2,8 @@
 It seems that you have stumbled upon my personal config files.  
 If you're interested at all, you can use it I guess.  
   
-![myawesomewmsetup](https://github.com/stwawbewwy/awesomewm/assets/98587775/55fb2b7a-6203-411c-8b87-4c36b85d6026)  
+![30-11-2023 21-33-20](https://github.com/stwawbewwy/awesomewm/assets/98587775/bac03478-463c-4187-8b1b-035617d464f5)
+
   
 Credit to [@lcpz](https://github.com/lcpz/lain) and [@streetturtle](https://github.com/streetturtle/awesome-wm-widgets) for their awesome widgets.  
 

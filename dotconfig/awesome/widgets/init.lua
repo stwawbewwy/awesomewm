@@ -34,13 +34,6 @@ local volume = lain.widget.alsa{
         end
 }
 
-local mypartition = lain.widget.fs{
-        notification_preset = {font="JetBrainsMonoNerdFont 10", position="bottom_left"},
-        settings = function()
-                widget:set_markup("󱛟 " .. fs_now["/home"].percentage .. "%")
-        end
-}
-
 local mymem = lain.widget.mem{
         settings = function()
                 widget:set_markup(" " .. mem_now.perc .. "%")
@@ -239,6 +232,7 @@ function _M.create_wibox(s)
                 screen = s,
                 position = 'top',
                 shape = gears.shape.rounded_bar,
+                bg = '#FFFFFF00',
                 widget = {
                         layout = wibox.layout.align.horizontal,
                         expand = "none",
@@ -269,7 +263,6 @@ function _M.create_wibox2(s)
         return awful.wibar{
                 screen = s,
                 position = 'bottom',
-                shape = gears.shape.rounded_bar,
                 widget = {
                         layout = wibox.layout.align.horizontal,
                         expand = "none",
@@ -280,7 +273,6 @@ function _M.create_wibox2(s)
                                 logout_popup.widget{},
                                 mycpu,
                                 mymem,
-                                mypartition,
                         },
                         -- middle widgets
                         {

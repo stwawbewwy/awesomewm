@@ -23,9 +23,10 @@ My awesome config, and some other stuff. Ignore the bashrc and xinitrc file, it'
 **File manager**: ranger  
   
 ## Additional Information  
-**Font/Icons**: Jet Brains Mono Nerd Font, Awesome Icons  
+**Font/Icons**: Jet Brains Mono Nerd Font, Awesome Icons, Arc Icon Theme  
 **Audio Server**: Pipewire  
   
 ## Whoa! Hold on there buckaroo!
 You may have noticed that I have a "autorun.sh" mentioned in my awesomewm config file. Edit it as you see fit. I use it instead of awful.spawn to make it easier for me to manage it.  
-Also if the logout popup menu does not work, that's cause it requires [awesome buttons](https://github.com/streetturtle/awesome-buttons.git). Clone it under ~/.config/awesome!   
+Also if the logout popup menu misses out some icons, that's cause it requires [awesome buttons](https://github.com/streetturtle/awesome-buttons.git). Clone it under ~/.config/awesome!  
+Same goes with the cmus widget, it requires [arc icon theme](https://github.com/horst3180/arc-icon-theme). Except you just need to follow the installation guide.  

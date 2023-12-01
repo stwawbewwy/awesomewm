@@ -19,7 +19,7 @@ My awesome config, and some other stuff. Ignore the bashrc and xinitrc file, it'
 **Shell**: bash  
 **Editor**: Neovim  
 **Compositor**: picom  
-**Application Launcher**: Awesomewm launcher  
+**Application Launcher**: Awesome Menu Bar  
 **Music Player**: cmus  
 **File manager**: ranger  
   

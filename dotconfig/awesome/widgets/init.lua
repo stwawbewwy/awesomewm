@@ -17,6 +17,8 @@ local todo_widget = require'awesome-wm-widgets.todo-widget.todo'
 local calendar_widget = require'awesome-wm-widgets.calendar-widget.calendar'
 
 -- using lain widgets
+local markup = lain.util.markup
+
 local mycpu = lain.widget.cpu{
         timeout = 1,
         settings = function()
@@ -27,7 +29,7 @@ local mycpu = lain.widget.cpu{
 local volume = lain.widget.alsa{
         settings = function()
                 if volume_now.status == 'off' then
-                        widget:set_markup("󰝟 " .. volume_now.level .. "%")
+                        widget:set_markup(markup("#FF0000", "󰝟 ") .. volume_now.level .. "%")
                 else
                         widget:set_markup("󰕾 " .. volume_now.level .. "%")
                 end
@@ -185,6 +187,7 @@ function _M.create_tasklist(s)
                 filter = awful.widget.tasklist.filter.currenttags,
                 style = {
                         shape = gears.shape.rounded_bar,
+                        bg_focus = "#535592",
                 },
                 layout   = {
                         spacing = 10,
@@ -308,7 +311,7 @@ volume.widget:buttons(awful.util.table.join{
         awful.button({}, 5, function()
                 os.execute(string.format("%s set %s 1%%-", volume.cmd, volume.channel))
                 volume.update()
-        end)
+        end),
 })
 
 return _M

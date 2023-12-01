@@ -7,13 +7,13 @@ local vars = require'config.vars'
 local widgets = require'widgets'
 
 screen.connect_signal('request::wallpaper', function(s)
-        local offset = {x='0', y='-200'}
+        local offset = {x='0', y='-215'}
 
-        gears.wallpaper.maximized("/home/notanyone/.config/awesome/wallpaper", '', false, offset)
+        gears.wallpaper.maximized("/home/notanyone/.config/awesome/wallpaper.jpg", '', false, offset)
 end)
 
 screen.connect_signal('request::desktop_decoration', function(s)
-        awful.tag(vars.tags, s, awful.layout.layouts[2])
+        awful.tag(vars.tags, s, vars.defaultlayouts)
         s.promptbox           = widgets.create_promptbox()
         s.layoutbox           = widgets.create_layoutbox(s)
         s.taglist             = widgets.create_taglist(s)

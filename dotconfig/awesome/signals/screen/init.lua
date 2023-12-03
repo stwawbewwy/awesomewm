@@ -6,10 +6,12 @@ local gears = require'gears'
 local vars = require'config.vars'
 local widgets = require'widgets'
 
+local home = os.getenv("HOME")
+
 screen.connect_signal('request::wallpaper', function(s)
         local offset = {x='0', y='-215'}
 
-        gears.wallpaper.maximized("/home/notanyone/.config/awesome/wallpaper.jpg", '', false, offset)
+        gears.wallpaper.maximized("/home/.config/awesome/wallpaper.jpg", '', false, offset)
 end)
 
 screen.connect_signal('request::desktop_decoration', function(s)

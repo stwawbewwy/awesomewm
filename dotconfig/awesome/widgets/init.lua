@@ -42,6 +42,7 @@ local mymem = lain.widget.mem{
         end
 }
 
+local home = os.getenv("HOME")
 local mybattery = lain.widget.bat{
         bat_notification_low_preset = {
                 title = "Oh no...",

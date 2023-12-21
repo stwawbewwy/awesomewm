@@ -1,8 +1,8 @@
 # Hello!
 It seems that you have stumbled upon my personal config files.  
 If you're interested at all, you can use it I guess.  
-  
-file:///home/notanyone/Pictures/Screenshots/21-12-2023%2023-11-31.png
+
+![https://imgur.com/a/QgViBwA](https://i.imgur.com/Js1vYay.png)
   
 Credit to [@lcpz](https://github.com/lcpz/lain) and [@streetturtle](https://github.com/streetturtle/awesome-wm-widgets) for their awesome widgets.  
 

@@ -11,7 +11,7 @@ ruled.client.connect_signal('request::rules', function()
                         focus     = awful.client.focus.filter,
                         raise     = true,
                         screen    = awful.screen.preferred,
-                        placement = awful.placement.no_overlap + awful.placement.no_offscreen
+                        placement = awful.placement.centered + awful.placement.no_offscreen
                 }
         }
 
@@ -45,23 +45,17 @@ ruled.client.connect_signal('request::rules', function()
                 properties = {floating = true}
         }
 
-        -- Add titlebars to normal clients and dialogs
-        ruled.client.append_rule{
-                id         = 'titlebars',
-                rule_any   = {type = {'normal', 'dialog'}},
-                properties = {titlebars_enabled = false},
-        }
-
-        -- Set Firefox to always map on the tag named '2' on screen 1.
-        ruled.client.append_rule {
-                rule       = {class = 'Thorium-browser'},
-                properties = {screen = 1, tag = vars.tags[1]}
-        }
-
+        -- Set programs to launch in specific tags
         ruled.client.append_rule {
                 rule       = {class = 'discord'},
                 properties = {screen = 1, tag = vars.tags[2]}
         }
+        ruled.client.append_rule {
+                rule       = {class = 'PrismLauncher'},
+                properties = {screen = 1, tag = vars.tags[6]}
+        }
 end)
+
+
 
 awful.spawn.with_shell("/home/notanyone/.config/awesome/autorun.sh")

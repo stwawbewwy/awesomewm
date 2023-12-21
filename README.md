@@ -30,3 +30,4 @@ My awesome config, and some other stuff. Ignore the bashrc and xinitrc file, it'
 You may have noticed that I have a "autorun.sh" mentioned in my awesomewm config file. Edit it as you see fit. I use it instead of awful.spawn to make it easier for me to manage it.  
 Also if the logout popup menu misses out some icons, that's cause it requires [awesome buttons](https://github.com/streetturtle/awesome-buttons.git). Clone it under ~/.config/awesome!  
 Same goes with the cmus widget, it requires [arc icon theme](https://github.com/horst3180/arc-icon-theme). Except you just need to follow the installation guide.  
+Oh and do change the last line of widgets/init.lua to your file dir. 

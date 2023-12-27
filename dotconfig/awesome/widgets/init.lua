@@ -9,6 +9,10 @@ local gears = require'gears'
 local apps = require'config.apps'
 local mod = require'bindings.mod'
 local lain = require'lain'
+local modules = require'modules'
+
+-- totally arbitrary variables
+local home = os.getenv("HOME")
 
 -- importing custom widgets
 local cmus_widget = require'awesome-wm-widgets.cmus-widget.cmus'
@@ -19,20 +23,11 @@ local calendar_widget = require'awesome-wm-widgets.calendar-widget.calendar'
 -- using lain widgets
 local markup = lain.util.markup
 
+--[[
 local mycpu = lain.widget.cpu{
         timeout = 1,
         settings = function()
                 widget:set_markup(" " .. cpu_now.usage .. "%")
-        end
-}
-
-local volume = lain.widget.alsa{
-        settings = function()
-                if volume_now.status == 'off' then
-                        widget:set_markup(markup("#FF0000", "󰝟 ") .. volume_now.level .. "%")
-                else
-                        widget:set_markup("󰕾 " .. volume_now.level .. "%")
-                end
         end
 }
 
@@ -41,25 +36,45 @@ local mymem = lain.widget.mem{
                 widget:set_markup(" " .. mem_now.perc .. "%")
         end
 }
+--]]
 
-local home = os.getenv("HOME")
+local volume = lain.widget.alsa{
+        settings = function()
+                if volume_now.status == 'off' then
+                        widget:set_markup(markup("#ff6961", "󰝟 ") .. volume_now.level .. "%")
+                else
+                        widget:set_markup(markup("#fbec77", "󰕾 ") .. volume_now.level .. "%")
+                end
+        end
+}
+
 local mybattery = lain.widget.bat{
         bat_notification_low_preset = {
                 title = "Oh no...",
-                text = "Blessed be thee for thou art in a situation of thy battery dying...",
+                text = "Charge thy battery",
                 timeout = 15,
                 fg = "#202020",
                 bg = "#CDCDCD",
-                icon = "/home/notanyone/.config/awesome/alicesleeping.jpg",
+                icon = home .. "/.config/awesome/alicesleeping.jpg",
         },
-        timeout = 10,
+        timeout = 1,
         settings = function()
-                widget:set_markup("󰁹 " .. bat_now.perc .. "%")
+                if bat_now.status == "N/A" then return end
+                
+                if bat_now.status == "Charging" then
+                        widget:set_markup(markup("#02bf3c", "󰂄 ") .. bat_now.perc .. "%")
+                else
+                        if bat_now.perc <= 15 then
+                                widget:set_markup(markup("#ff6961", "󰂃 ") .. bat_now.perc .. "%")
+                        else
+                                widget:set_markup(markup("#fbec77", "󰁹 ") .. bat_now.perc .. "%")
+                        end
+                end
         end
 }
 
 -- calendar widget
-local mytextclock = wibox.widget.textclock('%a %d %b, %H:%M:%S', 1)
+local mytextclock = wibox.widget.textclock('<span foreground="#fbec77">󰃭 </span>%a %d %b <span foreground="#fbec77">󰥔 </span>%H:%M:%S', 1)
 local cw = calendar_widget({
         placement="bottom_right",
         radius=8,
@@ -67,6 +82,21 @@ local cw = calendar_widget({
 mytextclock:connect_signal("button::press", function(_, _, _, button)
         if button == 1 then cw.toggle() end
 end)
+
+local rofimenu = awful.widget.button{
+        image = home .. "/.config/awesome/awesome-buttons/icons/search.svg",
+        buttons = {
+                awful.button({}, 1, nil, function()
+                        awful.spawn('rofi -show drun')
+                end
+                )
+        }
+}
+
+local tutorial = wibox.widget{
+        markup = '<span foreground="#fbec77">Win+Shift+c to close a window</span>',
+        widget = wibox.widget.textbox
+}
 
 _M.awesomemenu = {
         {'hotkeys', function() hotkeys_popup.show_help(nil, awful.screen.focused()) end},
@@ -104,6 +134,7 @@ function _M.create_layoutbox(s)
                                 button    = 3,
                                 on_press  = function() awful.layout.inc(-1) end,
                         },
+                        --[[
                         awful.button{
                                 modifiers = {},
                                 button    = 4,
@@ -114,6 +145,7 @@ function _M.create_layoutbox(s)
                                 button    = 5,
                                 on_press  = function() awful.layout.inc(1) end,
                         },
+                        --]]
                 }
         }
 end
@@ -168,6 +200,7 @@ function _M.create_taglist(s)
                                         end
                                 end
                         },
+                        --[[
                         awful.button{
                                 modifiers = {},
                                 button    = 4,
@@ -178,6 +211,7 @@ function _M.create_taglist(s)
                                 button    = 5,
                                 on_press  = function(t) awful.tag.viewnext(t.screen) end,
                         },
+                        --]]
                 }
         }
 end
@@ -192,6 +226,7 @@ function _M.create_tasklist(s)
                 },
                 layout   = {
                         spacing = 10,
+                        forced_width = 640,
                         spacing_widget = {
                                 {
                                         forced_width = 5,
@@ -217,6 +252,7 @@ function _M.create_tasklist(s)
                                 button    = 3,
                                 on_press  = function() awful.menu.client_list{theme = {width = 250}} end
                         },
+                        --[[
                         awful.button{
                                 modifiers = {},
                                 button    = 4,
@@ -227,6 +263,7 @@ function _M.create_tasklist(s)
                                 button    = 5,
                                 on_press  = function() awful.client.focus.byidx(1) end
                         },
+                        --]]
                 }
         }
 end
@@ -235,8 +272,8 @@ function _M.create_wibox(s)
         return awful.wibar{
                 screen = s,
                 position = 'top',
-                shape = gears.shape.rounded_bar,
                 bg = '#FFFFFF00',
+                margins = {left=20, right=20, top=0, bottom=0},
                 widget = {
                         layout = wibox.layout.align.horizontal,
                         expand = "none",
@@ -244,20 +281,19 @@ function _M.create_wibox(s)
                         {
                                 layout = wibox.layout.fixed.horizontal,
                                 spacing = 10,
-                                s.tasklist,
+                                s.taglist,
                         },
                         -- middle widgets
                         {
                                 layout = wibox.layout.fixed.horizontal,
-                                s.promptbox,
+                                s.tasklist,
                         },
                         -- right widgets
                         {
                                 layout = wibox.layout.fixed.horizontal,
                                 spacing = 10,
-                                s.taglist,
-                                s.layoutbox,
                                 todo_widget(),
+                                wibox.container.margin(s.layoutbox, 0, 10),
                         }
                 }
         }
@@ -267,6 +303,8 @@ function _M.create_wibox2(s)
         return awful.wibar{
                 screen = s,
                 position = 'bottom',
+                shape = gears.shape.rounded_bar,
+                margins = {top=0, bottom=20,left=20,right=20},
                 widget = {
                         layout = wibox.layout.align.horizontal,
                         expand = "none",
@@ -274,9 +312,13 @@ function _M.create_wibox2(s)
                         {
                                 layout = wibox.layout.fixed.horizontal,
                                 spacing = 10,
+                                wibox.container.margin(rofimenu, 10, 0),
                                 logout_popup.widget{},
+                                tutorial,
+                                --[[
                                 mycpu,
                                 mymem,
+                                --]]
                         },
                         -- middle widgets
                         {
@@ -287,9 +329,10 @@ function _M.create_wibox2(s)
                         {
                                 layout = wibox.layout.fixed.horizontal,
                                 spacing = 10,
+                                modules.aliceyay,
                                 volume,
                                 mybattery,
-                                mytextclock,
+                                wibox.container.margin(mytextclock, 0, 10),
                         }
                 }
         }
@@ -314,5 +357,20 @@ volume.widget:buttons(awful.util.table.join{
                 volume.update()
         end),
 })
+
+awful.keyboard.append_global_keybindings{
+        awful.key({}, "XF86AudioRaiseVolume", function()
+                os.execute(string.format("amixer set %s 5%%+", volume.channel))
+                volume.update()
+        end),
+        awful.key({}, "XF86AudioLowerVolume", function()
+                os.execute(string.format("amixer set %s 5%%-", volume.channel))
+                volume.update()
+        end),
+        awful.key({}, "XF86AudioMute", function()
+                os.execute(string.format("amixer set %s toggle", volume.togglechannel or volume.channel))
+                volume.update()
+        end)
+}
 
 return _M

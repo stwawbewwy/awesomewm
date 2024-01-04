@@ -6,5 +6,5 @@ run () {
         fi
 }
 
-run "thorium-browser"
+run "librewolf"
 run "discord"

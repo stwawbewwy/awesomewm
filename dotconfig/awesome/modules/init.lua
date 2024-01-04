@@ -1,3 +1,4 @@
 return {
-        vicious = require'vicious',
+    hourai = require'modules.hourai',
+    shanghai = require'modules.shanghai'
 }

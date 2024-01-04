@@ -76,19 +76,19 @@ local function factory(args)
     }
 
     bat_now = {
-        status    = "N/A",
-        ac_status = "N/A",
-        perc      = "N/A",
-        time      = "N/A",
-        watt      = "N/A",
-        capacity  = "N/A"
+        status    = "",
+        ac_status = "",
+        perc      = "",
+        time      = "",
+        watt      = "",
+        capacity  = ""
     }
 
     bat_now.n_status   = {}
     bat_now.n_perc     = {}
     bat_now.n_capacity = {}
     for i = 1, #batteries do
-        bat_now.n_status[i] = "N/A"
+        bat_now.n_status[i] = ""
         bat_now.n_perc[i] = 0
         bat_now.n_capacity[i] = 0
     end

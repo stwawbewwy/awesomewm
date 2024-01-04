@@ -7,6 +7,8 @@ local xresources = require("beautiful.xresources")
 local rnotification = require("ruled.notification")
 local dpi = xresources.apply_dpi
 
+local gears = require("gears")
+
 local gfs = require("gears.filesystem")
 local themes_path = gfs.get_themes_dir()
 
@@ -15,14 +17,14 @@ local theme = {}
 theme.font          = "JetBrainsMonoNerdFont 10"
 
 theme.bg_normal     = "#7B55B4"
-theme.bg_focus      = "#7B55B4"
+theme.bg_focus      = "#535592"
 theme.bg_urgent     = "#7B55B4"
-theme.bg_minimize   = "#7B55B4"
+theme.bg_minimize   = "#7B55B400"
 theme.bg_systray    = theme.bg_normal
 
 theme.fg_normal     = "#FFD1DC"
-theme.fg_focus      = "#FFFF00"
-theme.fg_urgent     = "#FF0000"
+theme.fg_focus      = "#FBEC77"
+theme.fg_urgent     = "#FF6961"
 theme.fg_minimize   = "#FFD1DC"
 
 theme.useless_gap         = dpi(0)
@@ -57,6 +59,7 @@ taglist_square_size, theme.fg_normal
 -- notification_[bg|fg]
 -- notification_[width|height|margin]
 notification_border_color = "#7B55B4"
+notification_shape = gears.shape.rounded_rect
 
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]

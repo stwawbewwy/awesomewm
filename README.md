@@ -2,7 +2,7 @@
 It seems that you have stumbled upon my personal config files.  
 If you're interested at all, you can use it I guess.  
 
-![https://imgur.com/a/QgViBwA](https://i.imgur.com/Js1vYay.png)
+![05-01-2024 10-22-52](https://github.com/stwawbewwy/awesomewm/assets/98587775/97068ddb-a6ef-4d1b-a15b-5d39beb15a1a)  
   
 Credit to [@lcpz](https://github.com/lcpz/lain) and [@streetturtle](https://github.com/streetturtle/awesome-wm-widgets) for their awesome widgets.  
 

@@ -49,15 +49,6 @@ local volume = lain.widget.alsa{
 }
 
 local mybattery = lain.widget.bat{
-    bat_notification_low_preset = {
-        title = "Oh no...",
-        text = "Charge thy battery",
-        timeout = 15,
-        fg = "#202020",
-        bg = "#CDCDCD",
-        icon = home .. "/.config/awesome/alicesleeping.jpg",
-    },
-    timeout = 1,
     settings = function()
         if bat_now.status == "N/A" then return end
 
@@ -141,9 +132,10 @@ function _M.create_taglist(s)
         filter = awful.widget.taglist.filter.all,
         style = {
             shape = gears.shape.rounded_bar,
-            bg_focus = "#53559200",
-            bg_empty = "#7b55b400",
-            bg_occupied = "#7b55b400",
+            bg_focus = '#53559200',
+            bg_empty = '#7b55b400',
+            bg_occupied = '#7b55b400',
+            bg_urgent = '#ffffff00',
         },
         layout   = {
             spacing = 10,
@@ -209,7 +201,7 @@ function _M.create_tasklist(s)
         screen = s,
         filter = awful.widget.tasklist.filter.currenttags,
         style = {
-            shape = gears.shape.rounded_bar,
+            -- shape = gears.shape.rounded_bar,
             bg_normal = 'ffffff00',
             bg_focus = 'ffffff00',
             bg_urgent = 'ffffff00',

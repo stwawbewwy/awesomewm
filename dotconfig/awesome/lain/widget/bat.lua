@@ -62,7 +62,7 @@ local function factory(args)
         title   = "Oh no...",
         text    = "It seems thy battery is at a low level...",
         icon = "/home/notanyone/.config/awesome/alicesleeping.jpg",
-        timeout = 15,
+        timeout = 5,
         fg      = "#202020",
         bg      = "#CDCDCD"
     }

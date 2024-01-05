@@ -4,6 +4,9 @@ local gears = require'gears'
 
 local home = os.getenv('HOME')
 
+local moon_icon = gears.color.recolor_image(home .. '/.config/awesome/awesome-buttons/icons/moon.svg', '#6f7e8e')
+local sun_icon = gears.color.recolor_image(home .. '/.config/awesome/awesome-buttons/icons/sun.svg', '#f4e98c')
+
 local eepy = wibox.widget{
     widget = wibox.widget.imagebox,
     forced_height = 20,
@@ -18,9 +21,9 @@ gears.timer{
     callback = function()
         local currenttime = tonumber(os.date("%H"))
         if currenttime >= 22 or currenttime <= 5 then
-            eepy:set_image(home .. '/.config/awesome/awesome-buttons/icons/moon.svg')
+            eepy:set_image(moon_icon)
         else
-            eepy:set_image(home .. '/.config/awesome/awesome-buttons/icons/sun.svg')
+            eepy:set_image(sun_icon)
         end
         collectgarbage()
     end

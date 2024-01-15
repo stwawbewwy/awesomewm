@@ -8,10 +8,12 @@ local widgets = require'widgets'
 
 local home = os.getenv("HOME")
 
+--[[
 screen.connect_signal('request::wallpaper', function(s)
     local offset = {x='0', y='0'}
-    gears.wallpaper.maximized(home .. "/.config/awesome/wallpaper.png", '', false, offset)
+    gears.wallpaper.maximized(home .. "/.config/awesome/wallpaper.jpg", '', false, offset)
 end)
+--]]
 
 screen.connect_signal('request::desktop_decoration', function(s)
     awful.tag(vars.tags, s, vars.defaultlayouts)

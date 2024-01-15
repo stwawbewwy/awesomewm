@@ -16,16 +16,16 @@ local theme = {}
 
 theme.font          = "JetBrainsMonoNerdFont 10"
 
-theme.bg_normal     = "#7B55B4"
-theme.bg_focus      = "#535592"
-theme.bg_urgent     = "#7B55B4"
-theme.bg_minimize   = "#7B55B400"
+theme.bg_normal     = "#7b55b4"
+theme.bg_focus      = "#000000"
+theme.bg_urgent     = "#000000"
+theme.bg_minimize   = "#000000"
 theme.bg_systray    = theme.bg_normal
 
-theme.fg_normal     = "#FFD1DC"
-theme.fg_focus      = "#FBEC77"
-theme.fg_urgent     = "#FF6961"
-theme.fg_minimize   = "#FFD1DC"
+theme.fg_normal     = "#ffd1dc"
+theme.fg_focus      = "#fbec77"
+theme.fg_urgent     = "#ff6961"
+theme.fg_minimize   = "#ffd1dc"
 
 theme.useless_gap         = dpi(0)
 theme.border_width        = dpi(1)
@@ -58,7 +58,7 @@ taglist_square_size, theme.fg_normal
 -- notification_font
 -- notification_[bg|fg]
 -- notification_[width|height|margin]
-notification_border_color = "#7B55B4"
+notification_border_color = "#7b55b4"
 notification_shape = gears.shape.rounded_rect
 
 -- Variables set for theming the menu:

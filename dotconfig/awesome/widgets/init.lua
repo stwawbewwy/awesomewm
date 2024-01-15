@@ -23,21 +23,6 @@ local calendar_widget = require'awesome-wm-widgets.calendar-widget.calendar'
 -- using lain widgets
 local markup = lain.util.markup
 
---[[
-local mycpu = lain.widget.cpu{
-timeout = 1,
-settings = function()
-widget:set_markup(" " .. cpu_now.usage .. "%")
-end
-}
-
-local mymem = lain.widget.mem{
-settings = function()
-widget:set_markup(" " .. mem_now.perc .. "%")
-end
-}
---]]
-
 local volume = lain.widget.alsa{
     settings = function()
         if volume_now.status == 'off' then
@@ -49,16 +34,25 @@ local volume = lain.widget.alsa{
 }
 
 local mybattery = lain.widget.bat{
+    timeout = 20,
     settings = function()
         if bat_now.status == "N/A" then return end
 
         if bat_now.status == "Charging" then
             widget:set_markup(markup("#02bf3c", "󰂄 ") .. bat_now.perc .. "%")
         else
-            if bat_now.perc <= 15 then
-                widget:set_markup(markup("#ff6961", "󰂃 ") .. bat_now.perc .. "%")
-            else
+            if bat_now.perc >= 100 then
                 widget:set_markup(markup("#fbec77", "󰁹 ") .. bat_now.perc .. "%")
+            elseif bat_now.perc >= 80 then
+                widget:set_markup(markup("#fbec77", "󰂁 ") .. bat_now.perc .. "%")
+            elseif bat_now.perc >= 60 then
+                widget:set_markup(markup("#fbec77", "󰁿 ") .. bat_now.perc .. "%")
+            elseif bat_now.perc >= 40 then
+                widget:set_markup(markup("#fbec77", "󰁽 ") .. bat_now.perc .. "%")
+            elseif bat_now.perc >= 20 then
+                widget:set_markup(markup("#fbec77", "󰁻 ") .. bat_now.perc .. "%")
+            else
+                widget:set_markup(markup("#ff6961", "󰂃 ") .. bat_now.perc .. "%")
             end
         end
     end
@@ -297,10 +291,6 @@ function _M.create_wibox2(s)
                 spacing = 10,
                 wibox.container.margin(modules.shanghai, 10, 0),
                 logout_popup.widget{},
-                --[[
-                mycpu,
-                mymem,
-                --]]
             },
             -- middle widgets
             {

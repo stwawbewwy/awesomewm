@@ -1,6 +1,7 @@
 local awful = require'awful'
 local ruled = require'ruled'
 local vars = require'config.vars'
+local apps = require'config.apps'
 
 ruled.client.connect_signal('request::rules', function()
     -- All clients will match this rule.
@@ -48,11 +49,15 @@ ruled.client.connect_signal('request::rules', function()
 
     -- Set programs to launch in specific tags
     ruled.client.append_rule {
-        rule       = {class = 'discord'},
+        rule_any   = {
+            class = {'discord'}
+        },
         properties = {screen = 1, tag = vars.tags[2]}
     }
     ruled.client.append_rule {
-        rule       = {class = 'PrismLauncher'},
+        rule_any   = {
+            class = {'PrismLauncher', 'steam'}
+        },
         properties = {screen = 1, tag = vars.tags[6]}
     }
     ruled.client.append_rule{
@@ -62,6 +67,5 @@ ruled.client.connect_signal('request::rules', function()
     }
 end)
 
-
-
 awful.spawn.with_shell("/home/notanyone/.config/awesome/autorun.sh")
+awful.spawn.with_shell("feh --bg-fill ~/.config/awesome/wallpaper.png")

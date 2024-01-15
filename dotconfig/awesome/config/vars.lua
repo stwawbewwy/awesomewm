@@ -14,7 +14,7 @@ _M.tags = {
 
 _M.defaultlayouts = {
     l.tile, -- 1
-    l.tile, -- 2
+    l.floating, -- 2
     l.tile, -- 3
     l.floating, -- 4
     l.floating, -- 5

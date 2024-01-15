@@ -9,7 +9,7 @@ local search = wibox.widget{
     forced_height = 20,
     forced_width = 20,
     valign = 'center',
-    image = home .. '/.config/awesome/awesome-buttons/icons/search.svg',
+    image = gears.color.recolor_image(home .. '/.config/awesome/awesome-buttons/icons/search.svg', '#fbec77')
 }
 
 search:connect_signal("button::press", function(_, _, _, button)
